@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import {List} from 'immutable';
 import {Upload, message, Button, Icon} from 'antd';
-import Auth from '../../common/Auth';
 
 import './Xoss.scss';
-import I18n from "../../common/I18n";
 
 const {ImageUpload} = Upload;
 const {CropUpload} = Upload;
 const {DragUpload} = Upload;
 
-// HOSS上传固定http方式，ws无效
+// XOSS上传固定http方式，ws无效
 
 export default class Xoss extends Component {
   static defaultProps = {};
@@ -83,8 +81,6 @@ export default class Xoss extends Component {
             data={{
               post: JSON.stringify({
                 scope: 'Assets.Hoss.upload',
-                client_id: Auth.getClientId(),
-                auth_uid: Auth.getUid(),
               }),
             }}
             locale={{
@@ -111,14 +107,12 @@ export default class Xoss extends Component {
             data={{
               post: JSON.stringify({
                 scope: 'Assets.Hoss.upload',
-                client_id: Auth.getClientId(),
-                auth_uid: Auth.getUid(),
               }),
             }}
             locale={{
               image: {
-                cancel: I18n.tr('uploadCancel'),
-                addPhoto: I18n.tr('upload') + this.val.name,
+                cancel: 'upload cancel',
+                addPhoto: 'upload' + this.val.name,
               },
             }}
             {...this.val.params}
@@ -154,8 +148,6 @@ export default class Xoss extends Component {
               data={{
                 post: JSON.stringify({
                   scope: 'Assets.Hoss.upload',
-                  client_id: Auth.getClientId(),
-                  auth_uid: Auth.getUid(),
                 }),
               }}
               {...this.val.params}
@@ -221,8 +213,6 @@ export default class Xoss extends Component {
             data={{
               post: JSON.stringify({
                 scope: 'Assets.Hoss.upload',
-                client_id: Auth.getClientId(),
-                auth_uid: Auth.getUid(),
               }),
             }}
             {...this.val.params}

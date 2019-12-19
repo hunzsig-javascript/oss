@@ -50,17 +50,17 @@ export default class Xoss extends Component {
 
   beforeUpload = () => {
     if (this.state.defaultFileList.size >= this.max) {
-      message.warning(I18n.tr('uploadOnlyAllow') + this.max + I18n.tr('files'));
+      message.warning(I18n('uploadOnlyAllow') + this.max + I18n('files'));
       return false;
     }
     return true;
   };
 
   onUploadSuccess = () => {
-    message.success(I18n.tr('uploadSuccess'));
+    message.success(I18n('uploadSuccess'));
   };
   onUploadError = (res) => {
-    message.error(I18n.tr('uploadFail') + I18n.tr(':') + (res.response.error || ''));
+    message.error(I18n('uploadFail') + I18n(':') + (res.response.error || ''));
   };
 
   renderUpload = (type) => {
@@ -85,8 +85,8 @@ export default class Xoss extends Component {
             }}
             locale={{
               image: {
-                cancel: I18n.tr('uploadCancel'),
-                addPhoto: I18n.tr('upload') + this.val.name,
+                cancel: I18n('uploadCancel'),
+                addPhoto: I18n('upload') + this.val.name,
               },
             }}
             {...this.val.params}
@@ -154,7 +154,7 @@ export default class Xoss extends Component {
             >
               <Button type="primary" size="small" style={{margin: '0 0 10px'}}>
                 <Icon type="scissor"/>
-                {I18n.tr('upload')}
+                {I18n('upload')}
                 {this.val.name}
               </Button>
             </CropUpload>
@@ -219,7 +219,7 @@ export default class Xoss extends Component {
           >
             <Button type="primary" size="small" style={{margin: '0 0 10px'}}>
               <Icon type="upload"/>
-              {I18n.tr('upload')}
+              {I18n('upload')}
               {this.val.name}
             </Button>
           </Upload>
